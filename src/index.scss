@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+$color1: #a3b18a;
+$color2: #588157;
+$color3: #3a5a40;
+
+.linkHeader {
+  padding: 5px 3px;
+  border-radius: 5px;
+}
+.linkHeader:hover {
+  border: 1px solid $color2;
+}
+
+.btnCarousel1 {
+  color: white;
+  background-color: $color2;
+}
+.btnCarousel1:hover {
+  background-color: $color3;
+}
