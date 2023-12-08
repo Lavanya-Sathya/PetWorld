@@ -19,6 +19,7 @@ $color4: #3a5a40;
 }
 .linkHeader:hover {
   border: 1px solid $color2;
+  color: $color1;
 }
 
 .btnCarousel1 {
@@ -27,4 +28,8 @@ $color4: #3a5a40;
 }
 .btnCarousel1:hover {
   background-color: $color4;
+  color: $color1;
+}
+input:focus {
+  outline: none !important;
 }

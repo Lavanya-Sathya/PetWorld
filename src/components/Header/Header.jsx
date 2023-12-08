@@ -51,7 +51,7 @@ const Header = () => {
             <NavLink className="nav-link linkHeader" to="#">
               Appointment
             </NavLink>
-            <NavLink className="nav-link linkHeader" to="#">
+            <NavLink className="nav-link linkHeader" to="/login">
               Login
             </NavLink>
           </div>
