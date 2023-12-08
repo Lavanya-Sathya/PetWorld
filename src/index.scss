@@ -3,13 +3,19 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-$color1: #a3b18a;
+$color1: #dad7cd;
 $color2: #588157;
-$color3: #3a5a40;
+$color3: #a3b18a;
+$color4: #3a5a40;
 
+.custom-dark {
+  background-color: $color4;
+  color: $color1;
+}
 .linkHeader {
   padding: 5px 3px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .linkHeader:hover {
   border: 1px solid $color2;
@@ -20,5 +26,5 @@ $color3: #3a5a40;
   background-color: $color2;
 }
 .btnCarousel1:hover {
-  background-color: $color3;
+  background-color: $color4;
 }

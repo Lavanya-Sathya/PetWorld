@@ -3,6 +3,7 @@ import img1 from "../assets/images/puppy_bg1.jpg";
 import img2 from "../assets/images/puppy_bg2.jpg";
 import img3 from "../assets/images/puppy_bg3.jpg";
 import About from "../components/About/About";
+import Service from "../components/Service/Service";
 
 const Home = () => {
   return (
@@ -98,6 +99,7 @@ const Home = () => {
         </button>
       </div>
       <About />
+      <Service />
     </>
   );
 };

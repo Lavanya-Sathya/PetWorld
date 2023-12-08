@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="container mt-4">
+    <div className="container my-4">
       <h2 className="text-center 8">About</h2>
       <p>
         Welcome to PetWorld, where our passion for pets meets exceptional care
