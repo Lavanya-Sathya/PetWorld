@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Signup = () => {
   return (
     <div className="container my-5 w-md-50">
-      <h2 className="text-center pt-5">SIGNUP</h2>
+      <h2 className="text-center pt-5 heading">SIGNUP</h2>
       <div className=" row ">
         <div className="col-3"></div>
         <div className="col-md-6">

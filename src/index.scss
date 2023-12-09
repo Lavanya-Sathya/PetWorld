@@ -8,6 +8,9 @@ $color2: #588157;
 $color3: #a3b18a;
 $color4: #3a5a40;
 
+.heading {
+  color: $color4;
+}
 .custom-dark {
   background-color: $color4;
   color: $color1;
@@ -28,8 +31,12 @@ $color4: #3a5a40;
 }
 .btnCarousel1:hover {
   background-color: $color4;
-  color: $color1;
+  color: white;
 }
 input:focus {
   outline: none !important;
+}
+// Card shadow
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
