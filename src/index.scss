@@ -40,3 +40,19 @@ input:focus {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
 }
+
+// Login and signup page
+.displaySign {
+  display: block;
+}
+.gridSign {
+  border: 1px solid #e0e0e0;
+}
+@media screen and (max-width: "768px") {
+  .displaySign {
+    display: none;
+  }
+  .gridSign {
+    border: none;
+  }
+}

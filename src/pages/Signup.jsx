@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../components/Firebase/Firebase";
+import signupImg from "./../assets/images/signup.jpg";
 const Signup = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
@@ -33,12 +34,14 @@ const Signup = () => {
       });
   };
   return (
-    <div className="container my-5 w-md-50">
-      <h2 className="text-center pt-5 heading">SIGNUP</h2>
-      <div className=" row ">
-        <div className="col-3"></div>
-        <div className="col-md-6">
-          <div className="mt-3">
+    <div
+      className="container w-md-50"
+      style={{ marginTop: "8rem", marginBottom: "5rem" }}
+    >
+      <div className="row gridSign">
+        <div className="col-md-7 px-5">
+          <h2 className="text-center pt-3 heading">SIGNUP</h2>
+          <div className="mt-4">
             <input
               type="text"
               className="form-control"
@@ -47,7 +50,7 @@ const Signup = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          <div className="mt-4">
+          <div className="mt-3">
             <input
               type="text"
               className="form-control"
@@ -81,10 +84,17 @@ const Signup = () => {
             </button>
           </div>
           <p className="text-center my-3">
-            Already has account? Please <Link to="/login">Login here</Link>
+            Already have an account? <Link to="/login">Login</Link>
           </p>
         </div>
-        <div className="col-3"></div>
+        <div className="col-md-5 displaySign p-0">
+          <img
+            src={signupImg}
+            alt="img"
+            className="img-fluid"
+            style={{ minHeight: "25rem", margin: "0px" }}
+          />
+        </div>
       </div>
     </div>
   );

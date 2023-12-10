@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import loginImg from "./../assets/images/login.jpg";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -21,18 +22,28 @@ const Login = () => {
             sessionStorage.setItem("Token", JSON.stringify(uid));
           }
         });
-        navigate("/");
+        navigate("/user");
       })
       .catch((error) => {
         alert(error.message);
       });
   };
   return (
-    <div className="container my-5 w-md-50">
-      <h2 className="text-center pt-5 heading">LOGIN</h2>
-      <div className=" row ">
-        <div className="col-3"></div>
-        <div className="col-md-6">
+    <div
+      className="container w-md-50"
+      style={{ marginTop: "8rem", marginBottom: "5rem" }}
+    >
+      <div className="row gridSign">
+        <div className="col-md-6 p-0 displaySign">
+          <img
+            src={loginImg}
+            alt="img"
+            className="img-fluid"
+            style={{ minHeight: "20rem", margin: "0px" }}
+          />
+        </div>
+        <div className="col-md-6  px-5">
+          <h2 className="text-center pt-5 heading">LOGIN</h2>
           <div className="mt-4">
             <input
               type="text"
@@ -60,10 +71,9 @@ const Login = () => {
             </button>
           </div>
           <p className="text-center my-3">
-            New User? Please <Link to="/signup">SignUp here</Link>
+            Don't have an account <Link to="/signup">SignUp</Link>
           </p>
         </div>
-        <div className="col-3"></div>
       </div>
     </div>
   );
