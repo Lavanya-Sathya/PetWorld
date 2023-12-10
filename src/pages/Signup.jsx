@@ -91,7 +91,7 @@ const Signup = () => {
           <img
             src={signupImg}
             alt="img"
-            className="img-fluid"
+            className="img-fluid rounded"
             style={{ minHeight: "25rem", margin: "0px" }}
           />
         </div>

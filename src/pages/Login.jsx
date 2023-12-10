@@ -38,7 +38,7 @@ const Login = () => {
           <img
             src={loginImg}
             alt="img"
-            className="img-fluid"
+            className="img-fluid rounded"
             style={{ minHeight: "20rem", margin: "0px" }}
           />
         </div>

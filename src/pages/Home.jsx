@@ -4,6 +4,7 @@ import img2 from "../assets/images/puppy_bg2.jpg";
 import img3 from "../assets/images/puppy_bg3.jpg";
 import About from "../components/About/About";
 import Service from "../components/Service/Service";
+import Testimonial from "../components/Testimonial/Testimonial";
 
 const Home = () => {
   return (
@@ -115,6 +116,7 @@ const Home = () => {
       </div>
       <About />
       <Service />
+      <Testimonial />
     </>
   );
 };
