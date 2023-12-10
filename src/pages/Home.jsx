@@ -117,6 +117,65 @@ const Home = () => {
       <About />
       <Service />
       <Testimonial />
+
+      {/* Contact Section */}
+      <div className="container my-5">
+        <h2 className="text-center heading ">Contact Us</h2>
+        <div className="row py-3 gap-5">
+          <div className="col-md-2">
+            <h5 className="subHeading">VISIT OUR SPA</h5>
+            <p className="heading fw-bold">PetWorld</p>
+            <p>
+              #12 7th main road 18th cross Bengaluru 56XXXX, Karnataka, India
+            </p>
+          </div>
+          <div className="col-md-3">
+            <h5 className="subHeading">FOR APPOINTMENTS</h5>
+            <p>
+              Admin <br />
+              <strong>Email: </strong> admin@gmail.com <br />
+              <strong>Mob no: </strong> +91 XXXXX-XXXXX <br />
+              <strong>Off no: </strong> 080 XXXXXX
+              <br />
+            </p>
+            <p>
+              <strong> Spa Timings</strong>
+              <br />
+              Monday to Sunday : 8 am to 8 pm
+            </p>
+          </div>
+          <div className="col-md-5">
+            <h5 className="text-center subHeading">SEND US A MESSAGE</h5>
+            <div className="mt-4">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter your name"
+              />
+            </div>
+            <div className="mt-4">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter email"
+              />
+            </div>
+            <div className="mt-3">
+              <textarea
+                name="text"
+                id="text"
+                cols="10"
+                rows="2"
+                placeholder="Write your query"
+                className="form-control"
+              ></textarea>
+            </div>
+            <div className="mt-4 text-center">
+              <button className="btn btnCarousel1 py-2 px-5">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

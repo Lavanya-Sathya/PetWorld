@@ -130,8 +130,8 @@ const Testimonial = () => {
       </div>
       <div className="container-fluid my-4 p-0">
         <div className="custom-dark p-5 text-center">
-          <button className="btn btn-light mb-2">Book an Appointment</button>
-          <h5>At best discount</h5>
+          <h4>Make an appointment with us today</h4>
+          <button className="btn btn-light mt-2">Book an Appointment</button>
         </div>
       </div>
     </>
