@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 const Header = () => {
+  const userId = JSON.parse(sessionStorage.getItem("Token"));
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light fixed-top"
@@ -51,9 +52,15 @@ const Header = () => {
             <NavLink className="nav-link linkHeader" to="#">
               Appointment
             </NavLink>
-            <NavLink className="nav-link linkHeader" to="/login">
-              Login
-            </NavLink>
+            {userId ? (
+              <NavLink className="nav-link linkHeader" to="/user">
+                Profile
+              </NavLink>
+            ) : (
+              <NavLink className="nav-link linkHeader" to="/login">
+                Login
+              </NavLink>
+            )}
           </div>
         </div>
       </div>
