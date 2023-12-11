@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../components/Firebase/Firebase";
+import userImg from "./../assets/images/img.jpg";
 import {
   collection,
   onSnapshot,
@@ -14,6 +15,10 @@ const UserHome = () => {
 
   // To store current user information
   const [user, setUser] = useState(null);
+  const [mobileNo, setMobileNo] = useState(null);
+  const [pet, setPet] = useState(null);
+  const [isbook, setIsBook] = useState(false);
+
   const userId = JSON.parse(sessionStorage.getItem("Token"));
   useEffect(() => {
     // authorization not provided to home page if the token is expired
@@ -93,17 +98,61 @@ const UserHome = () => {
   };
   return (
     <div className="container my-5">
-      <h2 className="text-center pt-5 heading">
-        Welcome {user?.data?.username}
-      </h2>
-      <div className="w-100 pb-5 d-flex justify-content-ceneter">
-        <button
+      <div className="w-100 py-5 d-flex justify-content-ceneter gap-5">
+        <h2 className="text-center heading">Welcome {user?.data?.username}</h2>
+        <h2>
+          <i
+            class="bi bi-box-arrow-right"
+            onClick={(e) => handleLogOut(e)}
+            style={{ cursor: "pointer" }}
+          ></i>
+        </h2>
+        {/* <button
           className="btn btnCarousel1 w-40 "
           style={{ margin: "auto" }}
           onClick={(e) => handleLogOut(e)}
         >
           Log Out
-        </button>
+        </button> */}
+      </div>
+      <div className="mb-5">
+        <h4> Personal Details</h4>
+        <div className=" d-flex justify-content-between gap-5">
+          <div className="mt-4">
+            <p className="text-muted fs-6 fw-bold">
+              Name: {user?.data?.username}
+            </p>
+            <p className="text-muted fs-6 fw-bold">
+              Email: {user?.data?.email}
+            </p>
+            <label
+              htmlFor="name"
+              className="form-label text-muted fs-6 fw-bold"
+            >
+              Mobile No
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter your Mobile Number..."
+              value={mobileNo}
+              onChange={(e) => setMobileNo(e)}
+            />
+            <div className="mt-4 ">
+              <button className="btn btnCarousel1" onClick={handleAppointment}>
+                Update
+              </button>
+            </div>
+          </div>
+          <div className="imgSec">
+            <img
+              src={userImg}
+              alt="userImage"
+              className="img-fluid"
+              style={{ borderRadius: "15rem" }}
+            />
+          </div>
+        </div>
       </div>
       <h4>Add your Pet Details</h4>
       <div className="mt-2">
