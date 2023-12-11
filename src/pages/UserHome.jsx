@@ -32,7 +32,7 @@ const UserHome = () => {
               // console.log(doc.id, " => ", doc.data());
               setUser({ id: doc.id, data: doc.data() });
             });
-            console.log(user);
+            // console.log(user);
           }
         );
       } catch (error) {
@@ -56,19 +56,34 @@ const UserHome = () => {
   const [gender, setGender] = useState(null);
   const [size, setSize] = useState(null);
   const [aggressive, setAggressive] = useState(null);
-  const [dateTime, setDateTime] = useState(null);
+  const [service, setService] = useState(null);
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState(null);
 
   const handleAppointment = () => {
     try {
-      addDoc(collection(db, "pets"), {
-        uid: userId,
-        breed: breed,
-        gender: gender,
-        size: size,
-        aggressive: aggressive,
-        dateTime: dateTime,
-      });
-      alert("You have booked your appointment successfully");
+      if (
+        breed === null ||
+        gender === null ||
+        size === null ||
+        aggressive === null ||
+        date === null ||
+        time === null
+      ) {
+        alert("Please fill all the fields");
+      } else {
+        addDoc(collection(db, "pets"), {
+          uid: userId,
+          breed: breed,
+          gender: gender,
+          size: size,
+          aggressive: aggressive,
+          service: service,
+          date: date,
+          time: time,
+        });
+        alert("You have booked your appointment successfully");
+      }
     } catch (error) {
       // const errorCode = error.code;
       // const errorMessage = error.message;
@@ -169,18 +184,47 @@ const UserHome = () => {
         </div>
         <div className="mt-4">
           <label
+            htmlFor="service"
+            className="form-label text-muted fs-6 fw-bold"
+          >
+            Select Service ?
+          </label>
+          <select
+            name=""
+            id="service"
+            className="form-select"
+            value={service}
+            onChange={(e) => setService(e.target.value)}
+          >
+            <option value="">Select </option>
+            <option value="SpaBath">Spa Bath</option>
+            <option value="BasicGrooming">Bath + Basic Grooming</option>
+            <option value="FullService">Full Service</option>
+          </select>
+        </div>
+        <div className="mt-4">
+          <label
             htmlFor="dateTime"
             className="form-label text-muted fs-6 fw-bold"
           >
             Select the Slot
           </label>
-          <input
-            type="datetime-local"
-            className="form-control"
-            id="dateTime"
-            value={dateTime}
-            onChange={(e) => setDateTime(e.target.value)}
-          />
+          <div className="d-flex gap-4">
+            <input
+              type="date"
+              className="form-control"
+              id="dateTime"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+            <input
+              type="time"
+              className="form-control"
+              id="dateTime"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+            />
+          </div>
         </div>
         <div className="mt-4">
           <button className="btn btnCarousel1" onClick={handleAppointment}>
