@@ -111,7 +111,7 @@ const Testimonial = () => {
             data-bs-slide="prev"
           >
             <span aria-hidden="true">
-              <i class="bi bi-chevron-left text-dark fs-5"></i>
+              <i className="bi bi-chevron-left text-dark fs-5"></i>
             </span>
             <span className="visually-hidden text-dark">Previous</span>
           </button>
@@ -122,7 +122,7 @@ const Testimonial = () => {
             data-bs-slide="next"
           >
             <span aria-hidden="true">
-              <i class="bi bi-chevron-right text-dark fs-5"></i>
+              <i className="bi bi-chevron-right text-dark fs-5"></i>
             </span>
             <span className="visually-hidden">Next</span>
           </button>

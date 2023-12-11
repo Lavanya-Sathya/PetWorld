@@ -1,13 +1,7 @@
 import React from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 const Header = () => {
-  const navigate = useNavigate();
   const userId = JSON.parse(sessionStorage.getItem("Token"));
-  const handleLogOut = () => {
-    sessionStorage.removeItem("Token");
-    alert("Logged Out Successfully");
-    navigate("/");
-  };
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light fixed-top"
@@ -59,32 +53,9 @@ const Header = () => {
               Appointment
             </NavLink>
             {userId ? (
-              <>
-                <li class="nav-item dropdown">
-                  <Link
-                    class="nav-link dropdown-toggle"
-                    to="/user"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Profile
-                  </Link>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li>
-                      <Link class="dropdown-item" to="/user">
-                        UserName
-                      </Link>
-                    </li>
-                    <li>
-                      <Link class="dropdown-item" onClick={handleLogOut}>
-                        Log Out
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-              </>
+              <NavLink className="nav-link linkHeader" to="/user">
+                Profile
+              </NavLink>
             ) : (
               <NavLink className="nav-link linkHeader" to="/login">
                 Login
