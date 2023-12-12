@@ -11,13 +11,26 @@ import {
 } from "firebase/firestore";
 
 const UserHome = () => {
+  // dog Api
+  const api = "https://dog.ceo/api/breeds/list/all";
   const navigate = useNavigate();
 
   // To store current user information
   const [user, setUser] = useState(null);
   const [mobileNo, setMobileNo] = useState(null);
   const [pet, setPet] = useState(null);
+  const [dog, setDog] = useState(null);
+  const [dogImage, setDogImage] = useState(null);
+
   const [isbook, setIsBook] = useState(false);
+
+  const [breed, setBreed] = useState(null);
+  const [gender, setGender] = useState(null);
+  const [size, setSize] = useState(null);
+  const [aggressive, setAggressive] = useState(null);
+  const [service, setService] = useState(null);
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState(null);
 
   const userId = JSON.parse(sessionStorage.getItem("Token"));
   useEffect(() => {
@@ -45,7 +58,37 @@ const UserHome = () => {
       }
     };
     fetchUserData();
+    fetch(api)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => setDog(Object.keys(data.message)))
+      .catch((error) =>
+        console.error("There was a problem with the fetch operation:", error)
+      );
   }, []);
+  // fetch dog image
+  useEffect(() => {
+    if (breed) {
+      const apiImage = `https://dog.ceo/api/breed/${breed}/images/random`;
+
+      fetch(apiImage)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => setDogImage(data.message)) // Assuming 'data.message' contains the image URL
+        .catch((error) =>
+          console.error("There was a problem with the fetch operation:", error)
+        );
+    }
+  }, [breed]);
+
   // logout from the current user session
   const handleLogOut = (e) => {
     e.preventDefault();
@@ -56,14 +99,6 @@ const UserHome = () => {
       navigate("/");
     }
   };
-
-  const [breed, setBreed] = useState(null);
-  const [gender, setGender] = useState(null);
-  const [size, setSize] = useState(null);
-  const [aggressive, setAggressive] = useState(null);
-  const [service, setService] = useState(null);
-  const [date, setDate] = useState(null);
-  const [time, setTime] = useState(null);
 
   const handleAppointment = () => {
     try {
@@ -156,80 +191,116 @@ const UserHome = () => {
       </div>
       <h4>Add your Pet Details</h4>
       <div className="mt-2">
-        <div className="mt-4">
-          <label htmlFor="breed" className="form-label text-muted fs-6 fw-bold">
-            Breed of your pet ?
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Please enter your pet's breed..."
-            value={breed}
-            onChange={(e) => setBreed(e.target.value)}
-          />
-        </div>
-        <div className="mt-4">
-          <label
-            htmlFor="gender"
-            className="form-label text-muted fs-6 fw-bold"
-          >
-            Gender of your pet ?
-          </label>
-          <select
-            name=""
-            id="gender"
-            className="form-select"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          >
-            <option value="" className="optHover">
-              Select Gender
-            </option>
+        <div className="row gap-5">
+          <div className="col-md-5">
+            <div className="mt-4">
+              <label
+                htmlFor="breed"
+                className="form-label text-muted fs-6 fw-bold"
+              >
+                Breed of your pet ?
+              </label>
+              <select
+                name=""
+                id=""
+                className="form-select"
+                value={breed}
+                onChange={(e) => setBreed(e.target.value)}
+              >
+                <option value="" className="optHover">
+                  Select Breed
+                </option>
+                {dog &&
+                  dog.map((breeds) => (
+                    <option key={breeds} value={breeds} className="optHover">
+                      {breeds}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            <div className="mt-4">
+              <label
+                htmlFor="gender"
+                className="form-label text-muted fs-6 fw-bold"
+              >
+                Gender of your pet ?
+              </label>
+              <select
+                name=""
+                id="gender"
+                className="form-select"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              >
+                <option value="" className="optHover">
+                  Select Gender
+                </option>
 
-            <option value="Female" className="optHover">
-              Female
-            </option>
-            <option value="Male" className="optHover">
-              Male
-            </option>
-          </select>
-        </div>
-        <div className="mt-4">
-          <label htmlFor="size" className="form-label text-muted fs-6 fw-bold">
-            Size of your pet ?
-          </label>
-          <select
-            name=""
-            id="size"
-            className="form-select"
-            value={size}
-            onChange={(e) => setSize(e.target.value)}
-          >
-            <option value="">Select </option>
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
-          </select>
-        </div>
-        <div className="mt-4">
-          <label
-            htmlFor="aggressive"
-            className="form-label text-muted fs-6 fw-bold"
-          >
-            How aggressive is your pet ?
-          </label>
-          <select
-            name=""
-            id="aggressive"
-            className="form-select"
-            value={aggressive}
-            onChange={(e) => setAggressive(e.target.value)}
-          >
-            <option value="">Select </option>
-            <option value="Small">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
-          </select>
+                <option value="Female" className="optHover">
+                  Female
+                </option>
+                <option value="Male" className="optHover">
+                  Male
+                </option>
+              </select>
+            </div>
+            <div className="mt-4">
+              <label
+                htmlFor="size"
+                className="form-label text-muted fs-6 fw-bold"
+              >
+                Size of your pet ?
+              </label>
+              <select
+                name=""
+                id="size"
+                className="form-select"
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+              >
+                <option value="">Select </option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+              </select>
+            </div>
+            <div className="mt-4">
+              <label
+                htmlFor="aggressive"
+                className="form-label text-muted fs-6 fw-bold"
+              >
+                How aggressive is your pet ?
+              </label>
+              <select
+                name=""
+                id="aggressive"
+                className="form-select"
+                value={aggressive}
+                onChange={(e) => setAggressive(e.target.value)}
+              >
+                <option value="">Select </option>
+                <option value="Small">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+              </select>
+            </div>
+          </div>
+          <div className="col-md-5 m-4">
+            {breed && (
+              <>
+                <img
+                  src={dogImage}
+                  alt="We don't have image for this picture, you can upload your pet image"
+                  className="img-fluid my-3 rounded"
+                  style={{
+                    width: "90%",
+                    maxHeight: "20rem",
+                    objectFit: "contain",
+                  }}
+                />
+              </>
+            )}
+          </div>
         </div>
         <div className="mt-4">
           <label
