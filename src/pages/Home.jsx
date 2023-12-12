@@ -42,13 +42,10 @@ const Home = () => {
           ></button>
         </div>
         <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img
-              src={img3}
-              className="img-fluid d-block w-100"
-              alt="img3"
-              style={{ minHeight: "420px" }}
-            />
+          <div
+            className="carousel-item active parallax-section"
+            style={{ backgroundImage: `url(${img3})`, height: "600px" }}
+          >
             <div className="carousel-caption h-100 d-flex flex-column justify-content-center align-items-center">
               <h1>Pet Home Grooming Service</h1>
               <p>
@@ -60,26 +57,20 @@ const Home = () => {
               </button>
             </div>
           </div>
-          <div className="carousel-item">
-            <img
-              src={img2}
-              className="img-fluid d-block w-100"
-              alt="img2"
-              style={{ minHeight: "420px" }}
-            />
+          <div
+            className="carousel-item parallax-section"
+            style={{ backgroundImage: `url(${img2})`, height: "600px" }}
+          >
             <div className="carousel-caption h-100 d-flex flex-column justify-content-center align-items-center">
               <h1>Spa and Wellness Services</h1>
               <p>Pamper, Relax, Wag: A Spa Day Tailored for Pets.</p>
               <button className=" btn btnCarousel1">Book a Session</button>
             </div>
           </div>
-          <div className="carousel-item">
-            <img
-              src={img1}
-              className="img-fluid d-block w-100"
-              alt="img1"
-              style={{ minHeight: "420px" }}
-            />
+          <div
+            className="carousel-item parallax-section"
+            style={{ backgroundImage: `url(${img1})`, height: "600px" }}
+          >
             <div className="carousel-caption h-100 d-flex flex-column justify-content-center align-items-center">
               <h1>Services</h1>
               <p>We provide all Kind of services for your pet</p>

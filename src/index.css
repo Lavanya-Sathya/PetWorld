@@ -51,11 +51,20 @@ input:focus {
 .gridSign {
   border: 1px solid #e0e0e0;
 }
-@media screen and (max-width: "768px") {
+@media screen and (max-width: 768px) {
   .displaySign {
     display: none;
   }
   .gridSign {
     border: none;
   }
+}
+/* Parallax effect for the home section */
+.parallax-section {
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
 }

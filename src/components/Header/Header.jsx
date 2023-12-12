@@ -47,10 +47,10 @@ const Header = () => {
               Testimonial
             </NavLink>
             <NavLink className="nav-link linkHeader" to="#">
-              Contact
+              Appointment
             </NavLink>
             <NavLink className="nav-link linkHeader" to="#">
-              Appointment
+              Contact
             </NavLink>
             {userId ? (
               <NavLink className="nav-link linkHeader" to="/user">

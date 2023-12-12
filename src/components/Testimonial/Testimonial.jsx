@@ -4,6 +4,7 @@ import test2 from "../../assets/images/test2.jpg";
 import test3 from "../../assets/images/test3.jpg";
 import test4 from "../../assets/images/test4.jpg";
 import test5 from "../../assets/images/test5.jpg";
+import bg1 from "../../assets/images/bg1.jpg";
 
 const Testimonial = () => {
   return (
@@ -128,10 +129,13 @@ const Testimonial = () => {
           </button>
         </div>
       </div>
-      <div className="container-fluid my-4 p-0">
-        <div className="custom-dark p-5 text-center">
-          <h4>Make an appointment with us today</h4>
-          <button className="btn btn-light mt-2">Book an Appointment</button>
+      <div
+        className="container-fluid my-5 p-0 parallax-section"
+        style={{ backgroundImage: `url(${bg1})`, height: "250px" }}
+      >
+        <div className="p-5 text-center">
+          <h4 className="mt-5 text-white">Make an appointment with us today</h4>
+          <button className="btn btnCarousel1 mt-2">Book an Appointment</button>
         </div>
       </div>
     </>
