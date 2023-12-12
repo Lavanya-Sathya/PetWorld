@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../components/Firebase/Firebase";
 import userImg from "./../assets/images/img.jpg";
+import petImagesAlt from "./../assets/images/petImagesAlt.jpg";
 import {
   collection,
   onSnapshot,
@@ -286,14 +287,27 @@ const UserHome = () => {
             </div>
           </div>
           <div className="col-md-5 m-4">
-            {breed && (
+            {breed ? (
               <>
                 <img
                   src={dogImage}
-                  alt="We don't have image for this picture, you can upload your pet image"
+                  alt="We don't have image for this pet, you can upload your pet image"
                   className="img-fluid my-3 rounded"
                   style={{
-                    width: "90%",
+                    width: "100%",
+                    maxHeight: "20rem",
+                    objectFit: "contain",
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <img
+                  src={petImagesAlt}
+                  alt="pet"
+                  className="img-fluid my-3 rounded"
+                  style={{
+                    width: "100%",
                     maxHeight: "20rem",
                     objectFit: "contain",
                   }}
