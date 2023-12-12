@@ -23,8 +23,6 @@ const UserHome = () => {
   const [dog, setDog] = useState(null);
   const [dogImage, setDogImage] = useState(null);
 
-  const [isbook, setIsBook] = useState(false);
-
   const [breed, setBreed] = useState(null);
   const [gender, setGender] = useState(null);
   const [size, setSize] = useState(null);
@@ -96,7 +94,6 @@ const UserHome = () => {
     const confirmLogOut = confirm("Are you sure you want to Log Out?");
     if (confirmLogOut) {
       sessionStorage.removeItem("Token");
-      alert("Logged Out Successfully");
       navigate("/");
     }
   };
@@ -138,7 +135,7 @@ const UserHome = () => {
         <h2 className="text-center heading">Welcome {user?.data?.username}</h2>
         <h2>
           <i
-            class="bi bi-box-arrow-right"
+            className="bi bi-box-arrow-right"
             onClick={(e) => handleLogOut(e)}
             style={{ cursor: "pointer" }}
           ></i>
@@ -153,8 +150,8 @@ const UserHome = () => {
       </div>
       <div className="mb-5">
         <h4> Personal Details</h4>
-        <div className=" d-flex justify-content-between gap-5">
-          <div className="mt-4">
+        <div className=" row gap-5 ">
+          <div className="col-md-6 order-md-2">
             <p className="text-muted fs-6 fw-bold">
               Name: {user?.data?.username}
             </p>
@@ -180,20 +177,20 @@ const UserHome = () => {
               </button>
             </div>
           </div>
-          <div className="imgSec">
+          {/* <div className="imgSec col-md-4 d-flex justify-content-center">
             <img
               src={userImg}
               alt="userImage"
               className="img-fluid"
               style={{ borderRadius: "15rem" }}
             />
-          </div>
+          </div> */}
         </div>
       </div>
       <h4>Add your Pet Details</h4>
       <div className="mt-2">
         <div className="row gap-5">
-          <div className="col-md-5">
+          <div className="col-md-5 order-2">
             <div className="mt-4">
               <label
                 htmlFor="breed"

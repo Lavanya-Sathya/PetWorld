@@ -51,12 +51,19 @@ input:focus {
 .gridSign {
   border: 1px solid #e0e0e0;
 }
+/* service card height */
+.cardTextSevice {
+  min-height: 12rem;
+}
 @media screen and (max-width: 768px) {
   .displaySign {
     display: none;
   }
   .gridSign {
     border: none;
+  }
+  .cardTextSevice {
+    min-height: auto;
   }
 }
 /* Parallax effect for the home section */

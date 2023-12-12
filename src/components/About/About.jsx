@@ -40,7 +40,7 @@ const About = () => {
           <div className="row py-5 my-4 justify-content-center">
             <div className="col-md-4 ">
               <h5>
-                <i class="bi bi-gear-fill"></i> CUSTOMIZED GROOMING
+                <i className="bi bi-gear-fill"></i> CUSTOMIZED GROOMING
               </h5>
               <p className="displaySign">
                 Tailored Pet Grooming Services Designed to Meet Your Furry
@@ -49,7 +49,7 @@ const About = () => {
             </div>
             <div className="col-md-4">
               <h5>
-                <i class="bi bi-person-fill-check"></i> EXPERT GROOMERS
+                <i className="bi bi-person-fill-check"></i> EXPERT GROOMERS
               </h5>
               <p className="displaySign">
                 Our Skilled Groomers Provide Professional Advice for Your Pet's
@@ -58,7 +58,7 @@ const About = () => {
             </div>
             <div className="col-md-4">
               <h5>
-                <i class="bi bi-award"></i> STATE-OF-THE-ART SALON
+                <i className="bi bi-award"></i> STATE-OF-THE-ART SALON
               </h5>
               <p className="displaySign">
                 Pawfect Grooming Spaces with Top-notch Facilities and Customized
@@ -67,7 +67,7 @@ const About = () => {
             </div>
             <div className="col-md-4">
               <h5>
-                <i class="bi bi-people-fill"></i> HAPPY PET OWNERS
+                <i className="bi bi-people-fill"></i> HAPPY PET OWNERS
               </h5>
               <p className="displaySign">
                 Join Our Proud Pet Parents – Our Grooming Services Bring Smiles
@@ -76,7 +76,7 @@ const About = () => {
             </div>
             <div className="col-md-4">
               <h5>
-                <i class="bi bi-columns-gap"></i> CUTTING-EDGE PET CARE
+                <i className="bi bi-columns-gap"></i> CUTTING-EDGE PET CARE
               </h5>
               <p className="displaySign">
                 Leading the Pack with State-of-the-Art Technologies and
@@ -85,7 +85,7 @@ const About = () => {
             </div>
             <div className="col-md-4">
               <h5>
-                <i class="bi bi-brightness-high-fill"></i> STRESS-FREE
+                <i className="bi bi-brightness-high-fill"></i> STRESS-FREE
                 EXPERIENCE
               </h5>
               <p className="displaySign">

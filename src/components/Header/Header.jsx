@@ -1,7 +1,15 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 const Header = () => {
+  const navigate = useNavigate();
   const userId = JSON.parse(sessionStorage.getItem("Token"));
+
+  useEffect(() => {
+    if (!userId) {
+      // alert("you have logged out successfully");
+      navigate("/");
+    }
+  }, [userId]);
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light fixed-top"
