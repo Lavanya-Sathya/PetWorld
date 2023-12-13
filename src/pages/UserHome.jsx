@@ -62,7 +62,7 @@ const UserHome = () => {
     const fetchAppointmentData = async () => {
       try {
         const snapshot = await onSnapshot(
-          query(collection(db, "pets")),
+          query(collection(db, "pets"), where("uid", "==", userId)),
           (querySnapshot) => {
             const postsArray = [];
             querySnapshot.forEach((doc) => {
