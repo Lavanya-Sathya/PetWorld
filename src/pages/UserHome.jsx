@@ -19,7 +19,9 @@ const UserHome = () => {
   // To store current user information
   const [user, setUser] = useState(null);
   const [mobileNo, setMobileNo] = useState(null);
-  const [pet, setPet] = useState(null);
+  const [appointment, setAppointment] = useState(null);
+  let [counter, setCounter] = useState(1);
+
   const [dog, setDog] = useState(null);
   const [dogImage, setDogImage] = useState(null);
 
@@ -57,6 +59,24 @@ const UserHome = () => {
       }
     };
     fetchUserData();
+    const fetchAppointmentData = async () => {
+      try {
+        const snapshot = await onSnapshot(
+          query(collection(db, "pets")),
+          (querySnapshot) => {
+            const postsArray = [];
+            querySnapshot.forEach((doc) => {
+              // console.log(doc.id, " => ", doc.data());
+              postsArray.push({ id: doc.id, data: doc.data() });
+            });
+            setAppointment(postsArray);
+          }
+        );
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchAppointmentData();
     fetch(api)
       .then((response) => {
         if (!response.ok) {
@@ -149,7 +169,7 @@ const UserHome = () => {
         </button> */}
       </div>
       <div className="mb-5">
-        <h4> Personal Details</h4>
+        <h4 className="heading"> Personal Details</h4>
         <div className=" row gap-5 ">
           <div className="col-md-6 order-md-2">
             <p className="text-muted fs-6 fw-bold">
@@ -187,10 +207,30 @@ const UserHome = () => {
           </div> */}
         </div>
       </div>
-      <h4>Add your Pet Details</h4>
+      <div className="my-4">
+        <h4 className="heading">Your Appointments</h4>
+        {/* {console.log("Appointments:", appointment)} */}
+        {appointment !== "" && appointment?.length > 0 ? (
+          appointment.map((app) => (
+            <div className="container" key={app.id}>
+              <div className="my-3 fs-5">
+                <span className="px-4">{counter++}.</span>
+                <span className="px-2">{app.data.breed}</span>
+                <span className="px-2"> {app.data.service}</span>
+                <span className="px-2">
+                  {app.data.date} - {app.data.time}
+                </span>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div>Your appointments will be shown here</div>
+        )}
+      </div>
+      <h4 className="heading">Add your Pet Details</h4>
       <div className="mt-2">
         <div className="row gap-5">
-          <div className="col-md-5 order-2">
+          <div className="col-md-5">
             <div className="mt-4">
               <label
                 htmlFor="breed"
@@ -283,7 +323,7 @@ const UserHome = () => {
               </select>
             </div>
           </div>
-          <div className="col-md-5 m-4">
+          <div className="col-md-5">
             {breed ? (
               <>
                 <img
@@ -348,13 +388,27 @@ const UserHome = () => {
               value={date}
               onChange={(e) => setDate(e.target.value)}
             />
-            <input
-              type="time"
-              className="form-control"
+
+            <select
+              name=""
               id="dateTime"
+              className="form-select"
               value={time}
               onChange={(e) => setTime(e.target.value)}
-            />
+            >
+              <option value="">Select time Slot</option>
+              <option value="9:00AM">9:00 AM</option>
+              <option value="10:00AM">10:00 AM</option>
+              <option value="11.00AM">11:00 AM</option>
+              <option value="12.00PM">12:00 PM</option>
+              <option value="1.00AM">1:00 PM</option>
+              <option value="2.00AM">2:00 PM</option>
+              <option value="3.00AM">3:00 PM</option>
+              <option value="4.00AM">4:00 PM</option>
+              <option value="5.00AM">5:00 PM</option>
+              <option value="6.00AM">6:00 PM</option>
+              <option value="7.00AM">7:00 PM</option>
+            </select>
           </div>
         </div>
         <div className="mt-4">
