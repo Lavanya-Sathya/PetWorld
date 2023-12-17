@@ -19,7 +19,7 @@
 - **Frontend:** React, React Router, CSS, HTML, Bootstrap.
 - **Backend:** Firebase (Firestore for database, Authentication for user management).
 - **Storage:** Firebase Storage for image and video storage.
-- **Deployment:** The application is deployed using [Netlify](https://insta-clone-react1.netlify.app/).
+- **Deployment:** The application is deployed using [Netlify](https://petworld-react.netlify.app/).
 
 ## Getting Started
 
@@ -36,5 +36,4 @@ To run this project locally, follow these steps:
 ## Credits
 
 - Built with JS,HTML, CSS, and Bootstrap.
-- Images and Reels from [Instagram](https://www.instagram.com/).
 - Icons from [Bootstrap Icons](https://icons.getbootstrap.com/)
